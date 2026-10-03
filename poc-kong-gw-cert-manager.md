@@ -7,7 +7,9 @@ Creates Kubernetes TLS Secret
 Renews before expiry
 Updates the Secret
 Kong automatically serves the renewed certificate
+
 Architecture
+```
 Internet
     |
 Let's Encrypt
@@ -23,8 +25,10 @@ Gateway
 HTTPRoute
     |
 Application
+```
 
-Install cert-manager
+## Install cert-manager
+```sh
 helm repo add jetstack https://charts.jetstack.io
 
 helm repo update
@@ -33,17 +37,17 @@ helm install cert-manager jetstack/cert-manager \
   --namespace cert-manager \
   --create-namespace \
   --set crds.enabled=true
-
+```
 
 Verify:
-
+```
 kubectl get pods -n cert-manager
-
+```
 Create ClusterIssuer
 letsencrypt-prod.yaml
 
 Replace email.
-
+```yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -63,14 +67,16 @@ spec:
           parentRefs:
           - name: kong-gateway
             namespace: kong
-
+```
 
 Apply:
-
+```sh
 kubectl apply -f letsencrypt-prod.yaml
-
+```
 Create Certificate Object
+
 certificate.yaml
+```yaml
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
@@ -85,24 +91,26 @@ spec:
 
   dnsNames:
   - gateway-rgs.eastus.cloudapp.azure.com
-
+```
 
 Apply:
-
+```
 kubectl apply -f certificate.yaml
-
+```
 
 Check:
-
+```
 kubectl get certificate -n kong
-
+```
 
 Check Secret:
-
+```
 kubectl get secret gateway-rgs-tls -n kong
-
+```
 Reference Secret from Gateway
-kong-gw-gateway.yml
+
+### kong-gw-gateway.yml
+```yaml
 apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
@@ -127,11 +135,11 @@ spec:
     allowedRoutes:
       namespaces:
         from: All
-
+```
 HTTPRoute
 
 No TLS configuration here.
-
+```yaml
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
@@ -148,21 +156,16 @@ spec:
   - backendRefs:
     - name: hello-world-1-svc
       port: 80
-
+```
 Auto Renewal Process
 
-Certificate validity:
+Certificate validity:  90 days
 
-90 days
-
-
-Cert-manager automatically renews around:
-
-~30 days before expiry
+Cert-manager automatically renews around:   ~30 days before expiry
 
 
 Flow:
-
+```
 Old Secret
     |
 Cert-manager renews
@@ -172,14 +175,14 @@ New Secret
 Gateway reads updated secret
     |
 HTTPS continues without downtime
-
+```
 
 No manual action required.
 
 Enterprise AKS Pattern (Recommended)
 
 Since you already work with AKS and Key Vault, the typical production setup is:
-
+```
 Azure DNS
     |
 cert-manager
@@ -193,23 +196,23 @@ Azure DNS Zone
 Kubernetes Secret
     |
 Gateway
-
+```
 
 Advantages:
-
+```
 No HTTP validation required
 Wildcard certificates supported
 Automatic renewal
 Suitable for production
 Works well with Key Vault integration
-
+```
 Example wildcard:
-
+```
 *.apps.company.com
-
+```
 
 Then multiple HTTPRoutes can use the same Gateway certificate.
-
+```
 Recommended POC Progression
 Kong Gateway (✅ done)
 LoadBalancer Service (✅ done)
@@ -222,3 +225,4 @@ HTTP → HTTPS redirect
 Multiple HTTPRoutes (/app1, /app2, /app3)
 
 This closely matches a real enterprise AKS ingress architecture.
+```
