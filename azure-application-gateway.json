@@ -1,0 +1,300 @@
+# azure application gateway infra json file for future reference troubleshooting
+{
+    "name": "agw-konggw",
+    "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw",
+    "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+    "type": "Microsoft.Network/applicationGateways",
+    "location": "eastus",
+    "tags": {},
+    "zones": [
+        "1",
+        "2",
+        "3"
+    ],
+    "identity": {
+        "type": "userAssigned"
+    },
+    "properties": {
+        "provisioningState": "Succeeded",
+        "resourceGuid": "5a8f24de-598a-4dd3-b4b8-f676bad1589c",
+        "sku": {
+            "name": "Standard_v2",
+            "tier": "Standard_v2",
+            "family": "Generation_1",
+            "capacity": 1
+        },
+        "operationalState": "Running",
+        "gatewayIPConfigurations": [
+            {
+                "name": "appGatewayIpConfig",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/gatewayIPConfigurations/appGatewayIpConfig",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "subnet": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/virtualNetworks/aks-app-gwvnet/subnets/appgw-subnet"
+                    }
+                },
+                "type": "Microsoft.Network/applicationGateways/gatewayIPConfigurations"
+            }
+        ],
+        "sslCertificates": [
+            {
+                "name": "gateway-rgs",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/sslCertificates/gateway-rgs",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "publicCertData": "MIIQKAYJKoZIhvcNAQcCoIIQGTCCEBUCAQExADALBgkqhkiG9w0BBwGggg/9MIIFIzCCBAugAwIBAgISBtz9GzwXo69M834y0zmQCqsQMA0GCSqGSIb3DQEBCwUAMDMxCzAJBgNVBAYTAlVTMRYwFAYDVQQKEw1MZXQncyBFbmNyeXB0MQwwCgYDVQQDEwNZUjIwHhcNMjYxMDA0MTAxMDExWhcNMjcwMTAyMTAxMDEwWjAwMS4wLAYDVQQDEyVnYXRld2F5LXJncy5lYXN0dXMuY2xvdWRhcHAuYXp1cmUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyyivcEKXMrTtCJdRCEK732Vrq2G1l4DRV9Us1uRVWjtgkhCfGpZWudRCpIJuY98p0GdEbDBbL1L/vudFfdkQzmHwUrnOvPiGBpeFt5ET/vGrU+dvCCn2ik4fjRUmqLRVELqALICPpy8/QvfbJIzGrMPUH/deYp2EVdRvZW007UPcTdY8a6uNPNry1enLYu69h6pCza3Rh9z0VErd3fYdpzNtvkxdf+5gyjEy6Tb7oTIzIBLQa+eS1Q4LUuaOoBMZUijOrbPz0dcwyd65t8zq9fS6KI7NDU9K2h8zI2GuGmXp33a3qw+w/Q5bOCwBSrVdInu8ei7fudSIBC/vkPjqxwIDAQABo4ICMjCCAi4wDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMBMAwGA1UdEwEB/wQCMAAwHQYDVR0OBBYEFN/4syElHFCcnHXXUfdkiuEN7sLHMB8GA1UdIwQYMBaAFEAVLSZ57TIgnt+ach3WMh+BDIEMMDMGCCsGAQUFBwEBBCcwJTAjBggrBgEFBQcwAoYXaHR0cDovL3lyMi5pLmxlbmNyLm9yZy8wMAYDVR0RBCkwJ4IlZ2F0ZXdheS1yZ3MuZWFzdHVzLmNsb3VkYXBwLmF6dXJlLmNvbTATBgNVHSAEDDAKMAgGBmeBDAECATAuBgNVHR8EJzAlMCOgIaAfhh1odHRwOi8veXIyLmMubGVuY3Iub3JnLzE3LmNybDCCAQsGCisGAQQB1nkCBAIEgfwEgfkA9wB1AByfaCzp+vBFaVD4G5aKh93bMhDYTObIsuOCUkrEz1mfAAABoQaaDVkAAAQDAEYwRAIgUbe6VYMQhLUz0A/Ml7MJ66eVDe7drWo/ZkSAwKfKxeQCIESKnRZrsR3TNnVYfNlsO9yPRR5xBc5Z8TBSZ7yRgHRtAH4AWW5sM4aUsllyolbIoOjdkEp26Ag92oc7AQg4KBQ87lkAAAGhBpoOCwAIAAAFAAcNCXUEAwBHMEUCIHKyXa4cAwH/wpvM4Ij/AbjepZuZaKDSVkZ7FSV1C6x3AiEAyuE0C5um6K9ZcdICX+SmRN/xQez2ixuuqmpAcCieW4swDQYJKoZIhvcNAQELBQADggEBAJ8tt08luawxpazuZa4PDTplGZgVDb5sPjZbbl2nGP3vwN7JblmZJImXzKLMwGjMODX53oQKH4qzMMACasYUy6PzrjOBwEEXLWNbc2ejnY3UGf7R8KdfnWS0X6iW+mwPLpGxyPgB8OjMNib949zUKBRJquAePhbkkWKbGMU+6A/KaayNzaRPbLdTM+/tZXhtMrgCUaRDRWc/qpLlFGLIcHiiLx4lIhOPdMqKOfwW7M9+q5zaHKgJeBZRmbLzGD06pVgpUdcNX3IggQp2scSf28EqR0fnlNI2cK+0OL5rBtRgds2DCeIXrVd4Pl5EnRQGTLXUjcrFsQKI63LjU1ERy08wggTaMIICwqADAgECAhBOvSSUfiTTlIAthKUv1bMZMA0GCSqGSIb3DQEBCwUAMC4xCzAJBgNVBAYTAlVTMQ0wCwYDVQQKEwRJU1JHMRAwDgYDVQQDEwdSb290IFlSMB4XDTI1MDkwMzAwMDAwMFoXDTI4MDkwMjIzNTk1OVowMzELMAkGA1UEBhMCVVMxFjAUBgNVBAoTDUxldCdzIEVuY3J5cHQxDDAKBgNVBAMTA1lSMjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBANnQvHAGmmqHziW6ox6tX954v99dDuYtBC/UuelYplvK8anHrCHoB+eyUCcXp7BORwcD6BI6gG+bcN+bToC4aIX4pG63h8ByjCqcBBAJb3z5A8/946//C6DsjKTg2Q7F/YjqDZ/nlPqcmg5MsVy6R5GrzQkZARhqf508Wv04ZSBAraEYqA2Rbzulqmmw4C5QlyuhiFG3m5SKzippmKt6Kx67faDMMk0ECIq2y93odfi/blumRE1xL8H8a1z2RVtSkP7Y8s/F16LdOKbnmTi18ARfAParKI9PGtM2rqU34AyvmDZzV02qQ5PCPF5XovmWk/WsaJi8udFo+U6rJlE9b7kCAwEAAaOB7jCB6zAOBgNVHQ8BAf8EBAMCAYYwEwYDVR0lBAwwCgYIKwYBBQUHAwEwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQUQBUtJnntMiCe35pyHdYyH4EMgQwwHwYDVR0jBBgwFoAU3udbYNAibUAofT8NAf6ktVK0UZQwMgYIKwYBBQUHAQEEJjAkMCIGCCsGAQUFBzAChhZodHRwOi8veXIuaS5sZW5jci5vcmcvMBMGA1UdIAQMMAowCAYGZ4EMAQIBMCcGA1UdHwQgMB4wHKAaoBiGFmh0dHA6Ly95ci5jLmxlbmNyLm9yZy8wDQYJKoZIhvcNAQELBQADggIBAHRlRBZn39if0I4Smj4l95wycHSHS/AOb8zroiperDcuhoubH2Vm9FN4MhLrs9R4jfIIDZbo8pEPT8UT8bnuU6ZL5fLkBpovTQgIY6qM1wJoxZbyjyd68c53iLiWqC3OcT/bxDCVx0nIXzIGJYemfKOESmY1YlRGA4I6DbGnBEwEKyMxJypg+06EF65hC9LAAR5MwvZSSHq4a5fgTXirrklrxx2MXlsCV2c/V4TgUFoDCxkbZ86qqspXTdjzk3DZu150/UC2WJC4lmz8mj+BfFd1zsusfcxyCemdtOICdxfvIRKE/qTNB6OWWowIi3nYc6PEMZZp9LtfD4MrCqYf4SrLx1xs65qD/UBiVCgo1UrcXmoeHq0QOIypBwsiJsYq14TqIejgD9shJxvOuFdRi6KybjZljOZzjwUxUgferLgvzgRN0AfaC3HDQ8CG9FVenwc/vB+eCnOw3/zE5Ol5FJszj5Btznobr4GJ+a/qyTWJ5Bs0DfAl2XgMNS5BJXyEGDHrOgjVlIY5GmsMW7HtzquFzvtBkxJGsSCiYF6SV6u8S97zrKVaZndZYdXpEsyLzE2+N3vWvgQ8gaBjsFlT9U8GSr64DsZvqZsmcWBXje6HfHItEWDEgCmEi6TBMZIxllH4Aj5CenQFhNai8dejM5/cfyvqGjMShPTYkefQB5N8MIIF9DCCA9ygAwIBAgIRAPJLbRf52a18scn+p4eCaZ8wDQYJKoZIhvcNAQELBQAwTzELMAkGA1UEBhMCVVMxKTAnBgNVBAoTIEludGVybmV0IFNlY3VyaXR5IFJlc2VhcmNoIEdyb3VwMRUwEwYDVQQDEwxJU1JHIFJvb3QgWDEwHhcNMjYwNTEzMDAwMDAwWhcNMzIwOTAyMjM1OTU5WjAuMQswCQYDVQQGEwJVUzENMAsGA1UEChMESVNSRzEQMA4GA1UEAxMHUm9vdCBZUjCCAiIwDQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBANvGJnN78CTJdWL3+eGfsLN5TrNBJs+VH9hRXqRbwxu9sGNiB0BD1fcOxbSUQCJIM1xE13Db+5Cw1w0s0EBYsvuIP/6joF0w8cuImbgR1OGgYbSQ4OpzI+DG8SGuTlcE873OCS+kh3srlo6vl43M5OJg4Aeo1sfHp6kTJDoIiFBNJAY+OKfX/FUvYKuhjT+no49lmqmupSBI5PkBQiqrEGtWU5uxU/cQWHGu8jSjFBznZqvbNPLMXMLFxCb3WTfrJBXXjqvWG+v4bjzxjjeAtOlU7qarRDvNOyAuQYLln904M+faKx8hnLCpJ15ZqaEgcNlY+9MMWcC5yvL2A2j3l9+2buggZX+dOE91zYmIdawTvSZuVvlbRrAlLxIB6pwMBjneXCjYQ8+3BCCjssbSNpZU3hTcBDdhfAlEDlYr6pEatnMdmDT5BqnKC92bd0EhM1fbLHioLccLCuievT8ZkPhZrq7Mii7gNXAcUEAR8+lzYal+9zTg7C5DALyVOeG/CqfRAMn1KSHCR0NSA6P8tn/mGRlnCct5rtVCLnVySVpU6H1qGg3DgTOuskf8eahTMiYbI5ezPJmO5ertalskQ1utp74+eDy92PI4ftHKTbq9IWhH4YZKh3WnJEIt+oQvlYZbY8tpEroKrFB6PFGzrJIDRyts4HqvuH52RFj2zv/BAgMBAAGjgeswgegwDgYDVR0PAQH/BAQDAgEGMBMGA1UdJQQMMAoGCCsGAQUFBwMBMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFN7nW2DQIm1AKH0/DQH+pLVStFGUMB8GA1UdIwQYMBaAFHm0WeZ7tuXkAXOACIjIGlj26ZtuMDIGCCsGAQUFBwEBBCYwJDAiBggrBgEFBQcwAoYWaHR0cDovL3gxLmkubGVuY3Iub3JnLzATBgNVHSAEDDAKMAgGBmeBDAECATAnBgNVHR8EIDAeMBygGqAYhhZodHRwOi8veDEuYy5sZW5jci5vcmcvMA0GCSqGSIb3DQEBCwUAA4ICAQA8spSI95KKfn2W6GMmDpHBJSPaLbsS3W93cijJCRCYAc1fsJgL1FIL7C0C9ecPOdcwB2fi0Dk2p94j9iTJCxmt5CFSKLRWwnXT2MMSXexVxqoVB79BdWPxVXETkVme/qYSAuKVHh5Ps+5BixgmwS1JkjSAc+MfrUbNssVEEnH0aEiAh+rotXAVJSP/Ye7LJPEwD9DWG72vVWbhAcuOf5OLjz57Ctk7MgQHynZ7+PlHJtajroCaIbtCr6tcZZaAwUQm+jQyeWdV+2hv9deOYFmKeQyjjcSrN5Nadrw+L9DZJLbA1HqeNvLhBgqpP0fvJq2N6EtD574N6eMI7uMsJTnji2UDz9el5XLSv9fqJMuDQtYVb2oTNoKpoUqhxPVC0aq4eG5MESaIdn8b5ZGSSeAJLMHXljEdlNza+ncfkviXk1POLnnFdvx8/gk6M374WbLWFXw8N141B/Rl/tINGfl1TxOIiqtiMYkL02RSGb1kq34BL9NPP27zRGMuHGnzS3hFIrRTfKxrzUZ9RzQWzEG3K6fJ3r2nqSltkeytis9DIBoFY9VmVyjLM71DMi+y1+TRSJVClEMwvA4yL++7q9XZx5r5wBRWB4kQTKH5qyoZnDw7iiuh1lIDyDFx8r7i9vIJU5HS3moZLkYWAOilMaV9N56A9Bgb6dNcHkvg3NoaYDEA",
+                    "httpListeners": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/https-listner"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/sslCertificates"
+            }
+        ],
+        "frontendIPConfigurations": [
+            {
+                "name": "appGwPublicFrontendIpIPv4",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/frontendIPConfigurations/appGwPublicFrontendIpIPv4",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "type": "Microsoft.Network/applicationGateways/frontendIPConfigurations",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "privateIPAllocationMethod": "Dynamic",
+                    "publicIPAddress": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/publicIPAddresses/appgw-pip"
+                    },
+                    "httpListeners": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/default-listerner"
+                        },
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/https-listner"
+                        }
+                    ]
+                }
+            }
+        ],
+        "frontendPorts": [
+            {
+                "name": "port_80",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/frontendPorts/port_80",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "port": 80,
+                    "httpListeners": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/default-listerner"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/frontendPorts"
+            },
+            {
+                "name": "port_443",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/frontendPorts/port_443",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "port": 443,
+                    "httpListeners": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/https-listner"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/frontendPorts"
+            }
+        ],
+        "backendAddressPools": [
+            {
+                "name": "kong-default-pool",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/backendAddressPools/kong-default-pool",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "backendAddresses": []
+                },
+                "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+            },
+            {
+                "name": "aks-kong-gw",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/backendAddressPools/aks-kong-gw",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "backendAddresses": [
+                        {
+                            "ipAddress": "10.224.0.5"
+                        }
+                    ],
+                    "requestRoutingRules": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/requestRoutingRules/default"
+                        },
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/requestRoutingRules/https"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/backendAddressPools"
+            }
+        ],
+        "backendHttpSettingsCollection": [
+            {
+                "name": "default",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/backendHttpSettingsCollection/default",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "port": 80,
+                    "protocol": "Http",
+                    "cookieBasedAffinity": "Disabled",
+                    "pickHostNameFromBackendAddress": false,
+                    "affinityCookieName": "ApplicationGatewayAffinity",
+                    "requestTimeout": 20,
+                    "probe": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/probes/kong-probe"
+                    },
+                    "requestRoutingRules": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/requestRoutingRules/default"
+                        },
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/requestRoutingRules/https"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/backendHttpSettingsCollection"
+            }
+        ],
+        "httpListeners": [
+            {
+                "name": "default-listerner",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/default-listerner",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "frontendIPConfiguration": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/frontendIPConfigurations/appGwPublicFrontendIpIPv4"
+                    },
+                    "frontendPort": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/frontendPorts/port_80"
+                    },
+                    "protocol": "Http",
+                    "hostName": "gateway-rgs.eastus.cloudapp.azure.com",
+                    "requireServerNameIndication": false,
+                    "requestRoutingRules": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/requestRoutingRules/default"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/httpListeners"
+            },
+            {
+                "name": "https-listner",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/https-listner",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "frontendIPConfiguration": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/frontendIPConfigurations/appGwPublicFrontendIpIPv4"
+                    },
+                    "frontendPort": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/frontendPorts/port_443"
+                    },
+                    "protocol": "Https",
+                    "sslCertificate": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/sslCertificates/gateway-rgs"
+                    },
+                    "hostName": "gateway-rgs.eastus.cloudapp.azure.com",
+                    "requireServerNameIndication": true,
+                    "requestRoutingRules": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/requestRoutingRules/https"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/httpListeners"
+            }
+        ],
+        "urlPathMaps": [],
+        "requestRoutingRules": [
+            {
+                "name": "default",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/requestRoutingRules/default",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "ruleType": "Basic",
+                    "httpListener": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/default-listerner"
+                    },
+                    "backendAddressPool": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/backendAddressPools/aks-kong-gw"
+                    },
+                    "backendHttpSettings": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/backendHttpSettingsCollection/default"
+                    }
+                },
+                "type": "Microsoft.Network/applicationGateways/requestRoutingRules"
+            },
+            {
+                "name": "https",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/requestRoutingRules/https",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "ruleType": "Basic",
+                    "httpListener": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/httpListeners/https-listner"
+                    },
+                    "backendAddressPool": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/backendAddressPools/aks-kong-gw"
+                    },
+                    "backendHttpSettings": {
+                        "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/backendHttpSettingsCollection/default"
+                    }
+                },
+                "type": "Microsoft.Network/applicationGateways/requestRoutingRules"
+            }
+        ],
+        "probes": [
+            {
+                "name": "kong-probe",
+                "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/probes/kong-probe",
+                "etag": "W/\"17b40aac-7df1-4708-8e97-daaf20e5de8c\"",
+                "properties": {
+                    "provisioningState": "Succeeded",
+                    "protocol": "Http",
+                    "host": "gateway-rgs.eastus.cloudapp.azure.com",
+                    "path": "/",
+                    "interval": 30,
+                    "timeout": 30,
+                    "unhealthyThreshold": 3,
+                    "pickHostNameFromBackendHttpSettings": false,
+                    "minServers": 0,
+                    "match": {
+                        "statusCodes": [
+                            "200-399"
+                        ]
+                    },
+                    "backendHttpSettings": [
+                        {
+                            "id": "/subscriptions/b759bfe1-c11f-44ab-99b8-40b072851e6f/resourceGroups/rgs-gateway/providers/Microsoft.Network/applicationGateways/agw-konggw/backendHttpSettingsCollection/default"
+                        }
+                    ]
+                },
+                "type": "Microsoft.Network/applicationGateways/probes"
+            }
+        ],
+        "redirectConfigurations": [],
+        "enableHttp2": true,
+        "enableFips": false
+    }
+}
