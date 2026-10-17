@@ -22,8 +22,31 @@ Istio is used for east-west service traffic and mTLS. Kong remains the north-sou
 4. Run `10-install-cert-manager.sh`.
 5. Replace `REPLACE_WITH_REAL_EMAIL` in `05-clusterissuer.yaml`.
 6. Confirm DNS points to the Kong public IP.
-7. Run `11-deploy.sh`.
-8. Run `12-verify.sh`.
+7. install this kong crd operator
+```sh
+$ kubectl get crd | grep gateway
+gatewayapis.operator.tigera.io                              2026-10-17T06:28:42Z
+gateways.networking.istio.io                                2026-10-17T11:01:33Z
+
+
+$ kubectl apply --server-side -f https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.6.1/standard-install.yaml
+
+$ kubectl get crd | grep gateway
+backendtlspolicies.gateway.networking.k8s.io                2026-10-17T11:31:53Z
+gatewayapis.operator.tigera.io                              2026-10-17T06:28:42Z
+gatewayclasses.gateway.networking.k8s.io                    2026-10-17T11:31:54Z
+gateways.gateway.networking.k8s.io                          2026-10-17T11:31:55Z
+gateways.networking.istio.io                                2026-10-17T11:01:33Z
+grpcroutes.gateway.networking.k8s.io                        2026-10-17T11:31:56Z
+httproutes.gateway.networking.k8s.io                        2026-10-17T11:31:57Z
+listenersets.gateway.networking.k8s.io                      2026-10-17T11:31:58Z
+referencegrants.gateway.networking.k8s.io                   2026-10-17T11:31:58Z
+tcproutes.gateway.networking.k8s.io                         2026-10-17T11:31:58Z
+tlsroutes.gateway.networking.k8s.io                         2026-10-17T11:31:59Z
+udproutes.gateway.networking.k8s.io                         2026-10-17T11:31:59Z
+```
+8. Run `11-deploy.sh`.
+9. Run `12-verify.sh`.
 
 ## DNS check
 
