@@ -1,0 +1,12 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: gateway-rgs-cert
+  namespace: kong
+spec:
+  secretName: gateway-rgs-tls
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+  dnsNames:
+    - gateway-rgs.eastus.cloudapp.azure.com
